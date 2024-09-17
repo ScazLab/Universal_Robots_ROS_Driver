@@ -83,6 +83,9 @@ ur_driver::UrDriver::UrDriver(const std::string& robot_ip, const std::string& sc
   uint32_t reverse_port = 50001;        // TODO: Make this a parameter
   uint32_t script_sender_port = 50002;  // TODO: Make this a parameter
 
+  LOG_INFO("revserse port: %d", reverse_port);
+  LOG_INFO("local ip: %s", local_ip.c_str());
+
   std::string prog = readScriptFile(script_file);
   prog.replace(prog.find(JOINT_STATE_REPLACE), JOINT_STATE_REPLACE.length(), std::to_string(MULT_JOINTSTATE));
   std::ostringstream out;
